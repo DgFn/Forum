@@ -1,0 +1,19 @@
+﻿<h1>My Forum by dgfn</h1> 
+<ul> 
+    {% for i in all_items %}  
+    <li>
+        {{i.name_section}}
+        {{i.message}}
+        <form action="/deleteForumItem/{{i.id}}/" method = "post">{% csrf_token %}
+            <input type="submit" value="Delete">
+        </form>  
+    </li> 
+    {% endfor %} 
+</ul>
+
+<form action="/addForumItem/" method = "post">{% csrf_token %}
+    <input type="text" name="name_section">
+    <input type="text" name="message">
+    <input type="text" name="comment">
+    <input type="submit" value="Add Forum">
+</form> 
